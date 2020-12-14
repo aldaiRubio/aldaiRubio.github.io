@@ -5,10 +5,10 @@ forma.addEventListener("submit",mostrar,false);
 
 function mostrar(){
     alert("Entro");
-    var nombre=forma["nombre"].getValue,
-          grupo=forma["grupo"].getValue,
-          materia=forma["materia"].getValue,
-          fecha=forma["fecha"].getValue;
+    var nombre=forma["nombre"].value,
+          grupo=forma["grupo"].value,
+          materia=forma["materia"].value,
+          fecha=forma["fecha"].value;
     salida.value=nombre + "\n" + grupo + "\n" + materia + "\n" + fecha;
 }
 
