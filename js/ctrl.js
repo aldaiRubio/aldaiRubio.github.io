@@ -1,7 +1,9 @@
 "use strict";
 const forma=document.getElementById("forma"),
      salida=document.getElementById("salida");
-forma.addEventListener("submit",mostrar=> try{
+forma.addEventListener("submit",mostrar,"false");
+function mostrar(){
+     try{
     console.log("Entro");
     mostrar.preventDefault();
     const nombre=forma["nombre"].getValue,
@@ -9,8 +11,9 @@ forma.addEventListener("submit",mostrar=> try{
           materia=forma["materia"].getValue,
           fecha=forma["fecha"].getValue;
     salida.value=nombre + "\n" + grupo + "\n" + materia + "\n" + fecha;
-}catch(error){
+     }catch(error){
      console.log(error);
      salida.value=error.message;
-});
+     }
+}
 
