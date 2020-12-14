@@ -8,6 +8,6 @@ function mostrar(){
           grupo=forma["grupo"].value,
           materia=forma["materia"].value,
           fecha=forma["fecha"].value;
-    salida.value=`Nombre:${nombre}, Grupo:${grupo}, Materia:${materia}, Fecha:${fecha}`;
+    salida.value=`Nombre:${nombre}, Grupo:${grupo}, Materia:${materia},  Fecha:${fecha}`;
 }
 
