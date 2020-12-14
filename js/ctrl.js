@@ -1,10 +1,10 @@
 "use strict";
 const forma=document.getElementById("forma"),
      salida=document.getElementById("salida");
-forma.addEventListener("submit",mostrar,"false");
+forma.addEventListener("submit",mostrar,false);
 function mostrar(){
-     try{
     console.log("Entro");
+     try{
     mostrar.preventDefault();
     const nombre=forma["nombre"].getValue,
           grupo=forma["grupo"].getValue,
