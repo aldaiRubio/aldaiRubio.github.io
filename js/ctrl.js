@@ -9,7 +9,5 @@ function mostrar(){
           materia=forma["materia"].getValue,
           fecha=forma["fecha"].getValue;
     salida.value=nombre + "\n" + grupo + "\n" + materia + "\n" + fecha;
-     console.log(error);
-     salida.value=error.message;
 }
 
