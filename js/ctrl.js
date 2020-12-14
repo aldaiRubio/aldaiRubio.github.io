@@ -1,5 +1,5 @@
 "use strict";
-const forma=document.getElementById("forma"),
+var forma=document.getElementById("forma"),
      salida=document.getElementById("salida");
 forma.addEventListener("submit",mostrar,false);
 function mostrar(){
