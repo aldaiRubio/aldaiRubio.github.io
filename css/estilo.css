@@ -5,10 +5,6 @@ body{
   display:inline-block
 }
 
-input{
-  border:bold;
-}
-
 *:required{
    border:thin solid red;
 }
