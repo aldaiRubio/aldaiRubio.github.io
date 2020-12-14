@@ -4,8 +4,7 @@ var forma=document.getElementById("forma"),
 forma.addEventListener("submit",mostrar,false);
 
 function mostrar(){
-    alert("Entro");
-    var nombre=forma["nombre"].value,
+     var nombre=forma["nombre"].value,
           grupo=forma["grupo"].value,
           materia=forma["materia"].value,
           fecha=forma["fecha"].value;
