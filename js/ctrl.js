@@ -11,5 +11,5 @@ forma.addEventListener("submit",mostrar=> try{
 }catch(error){
      console.log(error);
      salida.value=error.message;
-},false);
+});
 
