@@ -5,7 +5,10 @@ body{
   display:inline-block
 }
 
-botton{
+input{
   border:bold;
 }
 
+.required{
+   border-color:red;
+}
