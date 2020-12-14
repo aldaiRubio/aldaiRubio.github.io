@@ -4,7 +4,7 @@ var forma=document.getElementById("forma"),
 forma.addEventListener("submit",mostrar,false);
 function mostrar(){
     console.log("Entro");
-    const nombre=forma["nombre"].getValue,
+    var nombre=forma["nombre"].getValue,
           grupo=forma["grupo"].getValue,
           materia=forma["materia"].getValue,
           fecha=forma["fecha"].getValue;
