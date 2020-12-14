@@ -8,7 +8,7 @@ forma.addEventListener("submit",mostrar=> try{
           materia=forma["materia"].getValue,
           fecha=forma["fecha"].getValue;
     salida.value=nombre + "\n" + grupo + "\n" + materia + "\n" + fecha;
-}cathc(error){
+}catch(error){
      console.log(error);
      salida.value=error.message;
 },false);
