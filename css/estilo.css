@@ -9,6 +9,6 @@ input{
   border:bold;
 }
 
-.required{
-   border-color:red;
+*:required{
+   border:thin solid red;
 }
