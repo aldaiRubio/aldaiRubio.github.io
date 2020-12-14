@@ -2,6 +2,7 @@
 var forma=document.getElementById("forma"),
      salida=document.getElementById("salida");
 forma.addEventListener("submit",mostrar,false);
+
 function mostrar(){
     console.log("Entro");
     var nombre=forma["nombre"].getValue,
