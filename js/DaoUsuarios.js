@@ -61,7 +61,7 @@ export class DaoUsuarios {
       PRIV_IDS: modelo.privilegios.map(p => p.nombre),
       EDAD_USU: modelo.edad,
       ESC_USU: modelo.escuela,
-      NOM_USU: modelo.nombreUsu,
+      NOM_USU: modelo.nombre,
       TEL_USU: modelo.telefono
     });
     if (modelo.avatar && modelo.avatar.size > 0) {

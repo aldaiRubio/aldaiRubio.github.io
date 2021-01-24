@@ -27,7 +27,7 @@
         <button type="submit">Guardar</button>
       </header>
       <p><label>Cuenta de correo<input name="cue" type="email"></label></p>
-      <p><label>Nombre<input name="nom" type="text"></label></p>
+      <p><label>Nombre<input name="nombre" type="text"></label></p>
       <p><label>Telefono<input name="tel" type="number"></label></p>
       <p><label>Escuela<input name="esc" type="text"></label></p>
       <p><label>Edad<input name="edad" type="number"></label></p>
@@ -115,7 +115,7 @@
             publicacion,
             privilegios,
             edad: data.get("edad"),
-            nombreUsu: data.get("nom"),
+            nombre: data.get("nombre"),
             telefono: data.get("tel"),
             escuela: data.get("esc")
           });

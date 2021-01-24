@@ -27,8 +27,10 @@ export class InfoUsuario {
     valida(this.edad,"Falta proporcionar la edad");
     valida(this.telefono,"Falta proporcionar el telefono");
     valida(this.escuela,"Falta proporcionar la escuela");
+    valida(this.nombre,"Falta proporcionar el nombre");
   }
   validaAlModificar() {
+    valida(this.nombre,"Falta proporcionar el nombre");
     valida(this.email, "Falta proporcionar el email.");
     valida(this.edad,"Falta proporcionar la edad");
     valida(this.telefono,"Falta proporcionar el telefono");
