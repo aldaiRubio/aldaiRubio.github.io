@@ -1,19 +1,19 @@
 import { DaoAbc } from "../lib/DaoAbc.js";
 import { paraTodos, trims } from "../lib/util.js";
-import { InfoPublicaciones } from "./InfoPublicacion.js";
+import { InfoPublicacion } from "./InfoPublicacion.js";
 
-/** @implements {DaoAbc<InfoPublicaciones>} */
+/** @implements {DaoAbc<InfoPublicacion>} */
 export class DaoPublicaciones {
   /** @param {{collection: (col: string) => any; }} firestore */
   constructor(firestore) {
     this._colección = firestore.collection("PUBLICACION");
   }
   /** Crea una publicacion a partir de un documento.
- * @return {InfoPublicaciones} */
+ * @return {InfoPublicacion} */
   _cargaPublicacion(doc) {
     if (doc.exists) {
       const data = doc.data();
-      return new InfoPublicaciones({
+      return new InfoPublicacion({
         id: doc.id,
         nombre: data.PUB_NOMBRE
       });
@@ -23,7 +23,7 @@ export class DaoPublicaciones {
   }
 
   /** @param {(error: Error)=>void} callbackError
-   * @param {(modelos:InfoPublicaciones[])=>void} callback */
+   * @param {(modelos:InfoPublicacion[])=>void} callback */
   consulta(callbackError, callback) {
     /* Pide todos los registros de la colección "PUBLICACION" ordenados por
      * el campo "PUB_NOMBRE" de forma ascendente. */
@@ -39,12 +39,12 @@ export class DaoPublicaciones {
     );
   }
   /** @param {string} id
-   * @returns {Promise<InfoPublicaciones>} */
+   * @returns {Promise<InfoPublicacion>} */
   async busca(id) {
     let doc = id ? await this._colección.doc(id).get() : { exists: false };
     return this._cargaPublicacion(doc);
   }
-  /** @param {InfoPublicaciones} modelo
+  /** @param {InfoPublicacion} modelo
    * @returns {Promise<void>} */
   async agrega(modelo) {
     modelo.valida();
@@ -52,7 +52,7 @@ export class DaoPublicaciones {
       PUB_NOMBRE: trims(modelo.nombre)
     });
   }
-  /** @param {InfoPublicaciones} modelo
+  /** @param {InfoPublicacion} modelo
    * @returns {Promise<void>} */
   async modifica(modelo) {
     modelo.valida();
