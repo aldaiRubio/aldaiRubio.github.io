@@ -19,7 +19,6 @@ export class DaoPublicaciones {
     if (doc.exists) {
       const data = doc.data();
       return new InfoPublicacion({
-        id: doc.id,
         nombre: data.PUB_NOMBRE,
         propietario: data.PUB_PROP,
         descripcion: data.PUB_DES,
