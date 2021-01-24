@@ -26,7 +26,7 @@ export class DaoUsuarios {
         email: doc.id,
         avatar: null,
         urlDeAvatar: await this._daoStorage.url(doc.id),
-        publicacion: await this._daoPublicaciones.busca(data.PUB_ID),
+        publicaciones: await this._daoPublicaciones.busca(data.PUB_ID),
         privilegios: await this._daoPrivilegios.buscaMuchos(data.PRIV_IDS)
       });
     } else {
