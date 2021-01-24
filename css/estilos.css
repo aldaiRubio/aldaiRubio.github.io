@@ -9,6 +9,7 @@ body {
   max-width: 640px;
   margin: 0 auto;
   padding: 0.5rem;
+  display: inline-block;
 }
 
 mi-nav {
@@ -21,6 +22,10 @@ mi-nav ul {
   align-items: center;
   flex-flow: wrap;
   list-style: none;
+}
+
+mi-footer{
+  border-color: black;
 }
 
 mi-nav ul li {

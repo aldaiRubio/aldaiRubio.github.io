@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +57,7 @@
         lista.innerHTML = usuarios.map(u => {
           const parámetros = new URLSearchParams();
           parámetros.append("id", u.email);
-          const nombre = u.pasatiempo ? u.pasatiempo.nombre : "";
+          const nombre = u.publicacion ? u.publicacion.nombre : "";
           const privilegios =
             u.privilegios.map(p => foráneas.renderPrivilegio(p)).join("<br>");
           return (/* html */

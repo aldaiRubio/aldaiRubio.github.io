@@ -1,7 +1,7 @@
 import { CtrlAbc } from "../lib/CtrlAbc.js";
 import { CtrlSesión } from "./CtrlSesion.js";
 import { CtrlUsuarios } from "./CtrlUsuarios.js";
-import { DaoPasatiempos } from "./DaoPasatiempos.js";
+import { DaoPublicaciones } from "./DaoPublicaciones.js";
 import { DaoPrivilegios } from "./DaoPrivilegios.js";
 import { DaoStorage } from "./DaoStorage.js";
 import { DaoUsuarios } from "./DaoUsuarios.js";
@@ -24,15 +24,15 @@ export class Fábrica {
      * nombre de usuario en una lista. */
     provider.setCustomParameters({ prompt: "select_account" });
     this.daoStorage = new DaoStorage(storage);
-    this.daoPasatiempos = new DaoPasatiempos(firestore);
+    this.daoPublicaciones = new DaoPublicaciones(firestore);
     this.daoPrivilegios = new DaoPrivilegios(firestore);
-    this.daoUsuarios = new DaoUsuarios(firestore, this.daoPasatiempos,
+    this.daoUsuarios = new DaoUsuarios(firestore, this.daoPublicaciones,
       this.daoPrivilegios, this.daoStorage);
     this.ctrlSesión = new CtrlSesión(auth, provider, this.daoUsuarios);
-    this.ctrlPasatiempos =
-      new CtrlAbc("No se encontró el Pasatiempo.", this.daoPasatiempos);
-    this.ctrlUsuarios = new CtrlUsuarios("No se encontró el Pasatiempo.",
-      this.daoUsuarios, this.daoPasatiempos, this.daoPrivilegios);
+    this.ctrlPublicaciones =
+      new CtrlAbc("No se encontró la publicación.", this.daoPublicaciones);
+    this.ctrlUsuarios = new CtrlUsuarios("No se encontró la publicación.",
+      this.daoUsuarios, this.daoPublicaciones, this.daoPrivilegios);
     this.foráneasDeUsuarios = new ForáneasDeUsuarios();
   }
 }

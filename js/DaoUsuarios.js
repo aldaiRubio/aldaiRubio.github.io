@@ -1,6 +1,6 @@
 import { DaoAbc } from "../lib/DaoAbc.js";
 import { paraTodos } from "../lib/util.js";
-import { DaoPasatiempos } from "./DaoPasatiempos.js";
+import { DaoPublicaciones } from "./DaoPublicaciones.js";
 import { DaoPrivilegios } from "./DaoPrivilegios.js";
 import { DaoStorage } from "./DaoStorage.js";
 import { InfoUsuario } from "./InfoUsuario.js";
@@ -8,12 +8,12 @@ import { InfoUsuario } from "./InfoUsuario.js";
 /** @implements {DaoAbc<InfoUsuario>} */
 export class DaoUsuarios {
   /** @param {{collection: (col: string) => any;}} firestore
-   * @param {DaoPasatiempos} daoPasatiempos
+   * @param {DaoPublicaciones} daoPublicaciones
    * @param {DaoPrivilegios} daoPrivilegios
    * @param {DaoStorage} daoStorage */
-  constructor(firestore, daoPasatiempos, daoPrivilegios, daoStorage) {
+  constructor(firestore, daoPublicaciones, daoPrivilegios, daoStorage) {
     this._colección = firestore.collection("USUARIO");
-    this._daoPasatiempos = daoPasatiempos;
+    this._daoPublicaciones = daoPublicaciones;
     this._daoPrivilegios = daoPrivilegios;
     this._daoStorage = daoStorage;
   }
@@ -26,7 +26,7 @@ export class DaoUsuarios {
         email: doc.id,
         avatar: null,
         urlDeAvatar: await this._daoStorage.url(doc.id),
-        pasatiempo: await this._daoPasatiempos.busca(data.PAS_ID),
+        publicacion: await this._daoPublicaciones.busca(data.PAS_ID),
         privilegios: await this._daoPrivilegios.buscaMuchos(data.PRIV_IDS)
       });
     } else {
@@ -57,7 +57,7 @@ export class DaoUsuarios {
    * @returns {Promise<void>} */
   async _modificaInterno(modelo) {
     await this._colección.doc(modelo.email).set({
-      PAS_ID: modelo.pasatiempo ? (modelo.pasatiempo.id || null) : "",
+      PAS_ID: modelo.publicacion ? (modelo.publicacion.id || null) : "",
       PRIV_IDS: modelo.privilegios.map(p => p.nombre)
     });
     if (modelo.avatar && modelo.avatar.size > 0) {

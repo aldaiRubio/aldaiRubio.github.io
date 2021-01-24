@@ -1,19 +1,19 @@
 import { DaoAbc } from "../lib/DaoAbc.js";
 import { paraTodos, trims } from "../lib/util.js";
-import { InfoPasatiempo } from "./InfoPasatiempo.js";
+import { InfoPublicaciones } from "./InfoPublicacion.js";
 
-/** @implements {DaoAbc<InfoPasatiempo>} */
-export class DaoPasatiempos {
+/** @implements {DaoAbc<InfoPublicaciones>} */
+export class DaoPublicaciones {
   /** @param {{collection: (col: string) => any; }} firestore */
   constructor(firestore) {
     this._colección = firestore.collection("PASATIEMPO");
   }
   /** Crea un pasatiempo a partir de un documento.
- * @return {InfoPasatiempo} */
-  _cargaPasatiempo(doc) {
+ * @return {InfoPublicaciones} */
+  _cargaPublicacion(doc) {
     if (doc.exists) {
       const data = doc.data();
-      return new InfoPasatiempo({
+      return new InfoPublicaciones({
         id: doc.id,
         nombre: data.PAS_NOMBRE
       });
@@ -23,13 +23,13 @@ export class DaoPasatiempos {
   }
 
   /** @param {(error: Error)=>void} callbackError
-   * @param {(modelos:InfoPasatiempo[])=>void} callback */
+   * @param {(modelos:InfoPublicaciones[])=>void} callback */
   consulta(callbackError, callback) {
     /* Pide todos los registros de la colección "PASATIEMPO" ordenados por
      * el campo "PAS_NOMBRE" de forma ascendente. */
     this._colección.orderBy("PAS_NOMBRE").onSnapshot(
       querySnapshot => callback(
-        paraTodos(querySnapshot, doc => this._cargaPasatiempo(doc))),
+        paraTodos(querySnapshot, doc => this._cargaPublicacion(doc))),
       /** @param {Error} error */
       error => {
         callbackError(error);
@@ -39,12 +39,12 @@ export class DaoPasatiempos {
     );
   }
   /** @param {string} id
-   * @returns {Promise<InfoPasatiempo>} */
+   * @returns {Promise<InfoPublicaciones>} */
   async busca(id) {
     let doc = id ? await this._colección.doc(id).get() : { exists: false };
-    return this._cargaPasatiempo(doc);
+    return this._cargaPublicacion(doc);
   }
-  /** @param {InfoPasatiempo} modelo
+  /** @param {InfoPublicaciones} modelo
    * @returns {Promise<void>} */
   async agrega(modelo) {
     modelo.valida();
@@ -52,7 +52,7 @@ export class DaoPasatiempos {
       PAS_NOMBRE: trims(modelo.nombre)
     });
   }
-  /** @param {InfoPasatiempo} modelo
+  /** @param {InfoPublicaciones} modelo
    * @returns {Promise<void>} */
   async modifica(modelo) {
     modelo.valida();

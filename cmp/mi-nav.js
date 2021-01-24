@@ -11,8 +11,8 @@ class MiNav extends HTMLElement {
      */
     protege(privilegios) {
       let html = "";
-      if (privilegios.has("Pasatiempos")) {
-        html += /* html */ `<li><a href="pasatiempos.html">Pasatiempos</a></li>`;
+      if (privilegios.has("Publicaciones")) {
+        html += /* html */ `<li><a href="publicaciones.html">Publicaciones</a></li>`;
       }
       if (privilegios.has("Usuarios")) {
         html += /* html */ `<li><a href="usuarios.html">Usuarios</a></li>`;

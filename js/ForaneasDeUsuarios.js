@@ -1,10 +1,10 @@
 
 import { cod } from "../lib/util.js";
-import { InfoPasatiempo } from "./InfoPasatiempo.js";
+import { InfoPublicacion } from "./InfoPublicacion.js";
 import { InfoPrivilegio } from "./InfoPrivilegio.js";
 
-const SIN_PASATIEMPO = /* html */
-  `<option value="">-- Sin Pasatiempo --</option>`;
+const SIN_PUBLICACION = /* html */
+  `<option value="">-- Sin publicacion --</option>`;
 
 export class ForáneasDeUsuarios {
   /**@param {InfoPrivilegio} privilegio */
@@ -15,10 +15,10 @@ export class ForáneasDeUsuarios {
   }
   /** @param {HTMLSelectElement} select
    * @param {string} valor
-   * @param {InfoPasatiempo[]} pasatiempos */
-  muestraPasatiempos(select, valor, pasatiempos) {
-    select.innerHTML = SIN_PASATIEMPO +
-      pasatiempos.map(p => {
+   * @param {InfoPublicacion[]} publicacion */
+  muestraPublicaciones(select, valor, publicacion) {
+    select.innerHTML = SIN_PUBLICACION +
+      publicacion.map(p => {
         const selected = p.id === valor ? "selected" : "";
         return (/* html */
           `<option value="${cod(p.id)}" ${selected}>${cod(p.nombre)}</option>`);

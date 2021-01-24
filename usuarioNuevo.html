@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,8 +36,8 @@
       <!-- Maneja una asociación a uno. -->
       <p>
         <label>
-          Pasatiempo
-          <select name="pasatiempo">
+          Publicacion
+          <select name="publicacion">
             <option>Cargando…</option>
           </select>
         </label>
@@ -56,7 +56,7 @@
     <script type="module">
       import { muestraError } from "./lib/util.js";
       import { Fábrica } from "./js/Fabrica.js";
-      import { InfoPasatiempo } from "./js/InfoPasatiempo.js";
+      import { InfoPublicacion } from "./js/InfoPublicacion.js";
       import { InfoPrivilegio } from "./js/InfoPrivilegio.js";
       import { InfoUsuario } from "./js/InfoUsuario.js";
       import { muestraSesión, muestraUsuarios } from "./js/navegacion.js";
@@ -72,16 +72,16 @@
           miNav.protege(usuarioAutorizado.privilegios);
           forma.addEventListener("submit", guarda);
           ctrlUsuarios.
-            foráneas(muestraError, muestraPasatiempos, muestraPrivilegios);
+            foráneas(muestraError, muestraPublicaciones, muestraPrivilegios);
         } catch (error) {
           muestraError(error)
           muestraSesión();
         }
       }
 
-      /** @param {InfoPasatiempo[]} pasatiempos */
-      function muestraPasatiempos(pasatiempos) {
-        foráneas.muestraPasatiempos(forma.pasatiempo, "", pasatiempos);
+      /** @param {InfoPublicacion[]} publicaciones */
+      function muestraPublicaciones(publicaciones) {
+        foráneas.muestraPublicaciones(forma.publicacion, "", publicaciones);
       }
 
       /** @param {InfoPrivilegio[]} privs */
@@ -94,8 +94,8 @@
         try {
           evt.preventDefault();
           const data = new FormData(forma);
-          const pasatiempo = new InfoPasatiempo({
-            id: data.get("pasatiempo"),
+          const publicacion = new InfoPublicacion({
+            id: data.get("publicacion"),
             nombre: null
           });
           const privilegios = data.getAll("privilegios").
@@ -108,7 +108,7 @@
             email: data.get("cue"),
             avatar: data.get("avatar"),
             urlDeAvatar: null,
-            pasatiempo,
+            publicacion,
             privilegios
           });
           await ctrlUsuarios.agrega(modelo);

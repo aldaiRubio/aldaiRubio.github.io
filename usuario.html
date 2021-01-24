@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,8 +37,8 @@
       <!-- Maneja una asociación a uno. -->
       <p>
         <label>
-          Pasatiempo
-          <select name="pasatiempo">
+          Publicacion
+          <select name="publicacion">
             <option>Cargando…</option>
           </select>
         </label>
@@ -57,7 +57,7 @@
     <script type="module">
       import { muestraError } from "./lib/util.js";
       import { Fábrica } from "./js/Fabrica.js";
-      import { InfoPasatiempo } from "./js/InfoPasatiempo.js";
+      import { InfoPublicaciones } from "./js/InfoPublicacion.js";
       import { InfoPrivilegio } from "./js/InfoPrivilegio.js";
       import { InfoUsuario } from "./js/InfoUsuario.js";
       import { muestraSesión, muestraUsuarios } from "./js/navegacion.js";
@@ -88,17 +88,17 @@
           if (modelo) {
             forma.cue.value = id;
             ctrlUsuarios.
-              foráneas(muestraError, muestraPasatiempos, muestraPrivilegios);
+              foráneas(muestraError, muestraPublicaciones, muestraPrivilegios);
             forma.addEventListener("submit", guarda);
             eliminar.addEventListener("click", elimina);
             img.src = modelo.urlDeAvatar;
           }
           /** @param {InfoUsuario} modelo
-           * @param {InfoPasatiempo[]} pasatiempos */
-          function muestraPasatiempos(pasatiempos) {
-            const pasatiempoId = modelo.pasatiempo ? modelo.pasatiempo.id : "";
-            foráneas.muestraPasatiempos(forma.pasatiempo, pasatiempoId,
-              pasatiempos);
+           * @param {InfoPublicacion[]} publicaciones */
+          function muestraPublicaciones(publicaciones) {
+            const publicacionId = modelo.publicacion ? modelo.publicacion.id : "";
+            foráneas.muestraPublicaciones(forma.publicacion, publicacionId,
+              publicaciones);
           }
           /** @param {InfoUsuario} modelo
            * @param {InfoPrivilegio[]} privs */
@@ -117,8 +117,8 @@
         try {
           evt.preventDefault();
           const data = new FormData(forma);
-          const pasatiempo = new InfoPasatiempo({
-            id: data.get("pasatiempo"),
+          const publicacion = new InfoPublicacion({
+            id: data.get("publicacion"),
             nombre: null
           });
           const privilegios = data.getAll("privilegios").
@@ -130,7 +130,7 @@
             email: id,
             avatar: data.get("avatar"),
             urlDeAvatar: null,
-            pasatiempo,
+            publicacion,
             privilegios
           });
           await ctrlUsuarios.modifica(modelo);

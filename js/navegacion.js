@@ -2,8 +2,8 @@ export function muestraSesión() {
     location.href = "index.html";
   }
   
-  export function muestraPasatiempos() {
-    location.href = "pasatiempos.html";
+  export function muestraPublicaciones() {
+    location.href = "publicaciones.html";
   }
   
   export function muestraUsuarios() {

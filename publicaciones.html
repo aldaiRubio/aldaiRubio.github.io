@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasatiempos</title>
+    <title>Publicaciones</title>
     <script
       src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script
@@ -21,8 +21,8 @@
   <body>
     <mi-nav id="miNav"></mi-nav>
     <header>
-      <h1>Pasatiempos</h1>
-      <a href="pasatiempoNuevo.html">Agregar…</a>
+      <h1>Publicaciones</h1>
+      <a href="publicacionNueva.html">Agregar…</a>
     </header>
     <ul id="lista" class="lista">
       <li>
@@ -33,33 +33,33 @@
     <script type="module">
       import { Fábrica } from "./js/Fabrica.js";
       import { cod, muestraError } from "./lib/util.js";
-      import { InfoPasatiempo } from "./js/InfoPasatiempo.js";
+      import { InfoPublicacion } from "./js/InfoPublicacion.js";
       import { InfoUsuario } from "./js/InfoUsuario.js";
       import { muestraSesión } from "./js/navegacion.js";
 
       const ctrlSesión = Fábrica.instancia.ctrlSesión;
-      const ctrlPasatiempos = Fábrica.instancia.ctrlPasatiempos;
+      const ctrlPublicaciones = Fábrica.instancia.ctrlPublicaciones;
 
       protege();
       async function protege() {
         try {
-          const usuarioAutorizado = await ctrlSesión.protege("Pasatiempos");
+          const usuarioAutorizado = await ctrlSesión.protege("Publicaciones");
           miNav.protege(usuarioAutorizado.privilegios);
-          ctrlPasatiempos.consulta(muestraError, muestraPasatiempos);
+          ctrlPublicaciones.consulta(muestraError, muestraPublicaciones);
         } catch (error) {
           muestraError(error)
           muestraSesión();
         }
       }
 
-      /** @param {InfoPasatiempo[]} pasatiempos */
-      function muestraPasatiempos(pasatiempos) {
-        lista.innerHTML = pasatiempos.map(p => {
+      /** @param {InfoPublicacione[]} publicaciones */
+      function muestraPublicaciones(publicaciones) {
+        lista.innerHTML = publicaciones.map(p => {
           const parámetros = new URLSearchParams();
           parámetros.append("id", p.id);
           return (/* html */
             `<li>
-              <a href="pasatiempo.html?${parámetros}"><strong>${cod(p.nombre)}</strong></a>
+              <a href="publicacion.html?${parámetros}"><strong>${cod(p.nombre)}</strong></a>
             </li>`);
         }).join("");
       }

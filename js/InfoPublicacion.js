@@ -1,11 +1,11 @@
 import { valida } from "../lib/util.js";
 
-/** @typedef {Object} ParamPasatiempo
+/** @typedef {Object} ParamPublicacion
  * @property {string} id
  * @property {string} nombre */
 
-export class InfoPasatiempo {
-  /** @param {ParamPasatiempo} param0 */
+export class InfoPublicacion {
+  /** @param {ParamPublicacion} param0 */
   constructor({ id, nombre }) {
     this.id = id;
     this.nombre = nombre;
