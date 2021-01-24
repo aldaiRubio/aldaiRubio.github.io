@@ -13,7 +13,7 @@ export class InfoPublicacion {
     this.id = id;
     this.nombre = nombre;
     this.propietario = propietario;
-    this. descripcion = descripcion;
+    this.descripcion = descripcion;
     this.archivo = archivo;
     this.urlArchivo = urlArchivo;
   }
