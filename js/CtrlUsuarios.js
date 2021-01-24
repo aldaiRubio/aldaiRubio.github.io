@@ -19,7 +19,7 @@ export class CtrlUsuarios extends CtrlAbc {
     this._daoPrivilegios = daoPrivilegios;
   }
   /** @param {(error: Error)=>void} callbackError
-   * @param {(pasatiempos:InfoPublicacion[])=>void} callbackPublicaciones
+   * @param {(publicaciones:InfoPublicacion[])=>void} callbackPublicaciones
    * @param {(privilegios:InfoPrivilegio[])=>void} callbackPrivilegios */
   foráneas(callbackError, callbackPublicaciones, callbackPrivilegios) {
     this._daoPublicaciones.consulta(callbackError, callbackPublicaciones);

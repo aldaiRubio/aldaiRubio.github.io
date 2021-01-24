@@ -6,16 +6,16 @@ import { InfoPublicaciones } from "./InfoPublicacion.js";
 export class DaoPublicaciones {
   /** @param {{collection: (col: string) => any; }} firestore */
   constructor(firestore) {
-    this._colección = firestore.collection("PASATIEMPO");
+    this._colección = firestore.collection("PUBLICACION");
   }
-  /** Crea un pasatiempo a partir de un documento.
+  /** Crea una publicacion a partir de un documento.
  * @return {InfoPublicaciones} */
   _cargaPublicacion(doc) {
     if (doc.exists) {
       const data = doc.data();
       return new InfoPublicaciones({
         id: doc.id,
-        nombre: data.PAS_NOMBRE
+        nombre: data.PUB_NOMBRE
       });
     } else {
       return null;
@@ -25,9 +25,9 @@ export class DaoPublicaciones {
   /** @param {(error: Error)=>void} callbackError
    * @param {(modelos:InfoPublicaciones[])=>void} callback */
   consulta(callbackError, callback) {
-    /* Pide todos los registros de la colección "PASATIEMPO" ordenados por
-     * el campo "PAS_NOMBRE" de forma ascendente. */
-    this._colección.orderBy("PAS_NOMBRE").onSnapshot(
+    /* Pide todos los registros de la colección "PUBLICACION" ordenados por
+     * el campo "PUB_NOMBRE" de forma ascendente. */
+    this._colección.orderBy("PUB_NOMBRE").onSnapshot(
       querySnapshot => callback(
         paraTodos(querySnapshot, doc => this._cargaPublicacion(doc))),
       /** @param {Error} error */
@@ -49,7 +49,7 @@ export class DaoPublicaciones {
   async agrega(modelo) {
     modelo.valida();
     await this._colección.add({
-      PAS_NOMBRE: trims(modelo.nombre)
+      PUB_NOMBRE: trims(modelo.nombre)
     });
   }
   /** @param {InfoPublicaciones} modelo
@@ -57,7 +57,7 @@ export class DaoPublicaciones {
   async modifica(modelo) {
     modelo.valida();
     await this._colección.doc(modelo.id).set({
-      PAS_NOMBRE: trims(modelo.nombre)
+      PUB_NOMBRE: trims(modelo.nombre)
     });
   }
   /** @param {string} id

@@ -26,7 +26,7 @@ export class DaoUsuarios {
         email: doc.id,
         avatar: null,
         urlDeAvatar: await this._daoStorage.url(doc.id),
-        publicacion: await this._daoPublicaciones.busca(data.PAS_ID),
+        publicacion: await this._daoPublicaciones.busca(data.PUB_ID),
         privilegios: await this._daoPrivilegios.buscaMuchos(data.PRIV_IDS)
       });
     } else {
@@ -57,7 +57,7 @@ export class DaoUsuarios {
    * @returns {Promise<void>} */
   async _modificaInterno(modelo) {
     await this._colección.doc(modelo.email).set({
-      PAS_ID: modelo.publicacion ? (modelo.publicacion.id || null) : "",
+      PUB_ID: modelo.publicacion ? (modelo.publicacion.id || null) : "",
       PRIV_IDS: modelo.privilegios.map(p => p.nombre)
     });
     if (modelo.avatar && modelo.avatar.size > 0) {
