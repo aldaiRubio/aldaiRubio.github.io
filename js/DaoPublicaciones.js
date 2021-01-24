@@ -2,7 +2,8 @@ import { DaoAbc } from "../lib/DaoAbc.js";
 import { paraTodos, trims } from "../lib/util.js";
 import { InfoPublicacion } from "./InfoPublicacion.js";
 import { DaoStorage } from "./DaoStorage.js";
-
+import { CtrlSesión } from "./CtrlSesion.js";
+const ctrlSesión = Fábrica.instancia.ctrlSesión;
 
 /** @implements {DaoAbc<InfoPublicacion>} */
 export class DaoPublicaciones {
@@ -16,15 +17,18 @@ export class DaoPublicaciones {
   /** Crea una publicacion a partir de un documento.
  * @return {Promise<InfoPublicacion>} */
   _cargaPublicacion(doc) {
+    const emailUsu=ctrlSesión.traeEmail();
     if (doc.exists) {
-      const data = doc.data();
-      return new InfoPublicacion({
-        nombre: data.PUB_NOMBRE,
-        propietario: data.PUB_PROP,
-        descripcion: data.PUB_DES,
-        archivo:null
-        //,urlArchivo: await this._daoStorage.url(doc.id)
-      });
+      if(data.PUB_PROP === emailUsu){
+        const data = doc.data();
+        return new InfoPublicacion({
+          nombre: data.PUB_NOMBRE,
+          propietario: data.PUB_PROP,
+          descripcion: data.PUB_DES,
+          archivo:null
+          //,urlArchivo: await this._daoStorage.url(doc.id)
+        });
+      }
     } else {
       return null;
     }

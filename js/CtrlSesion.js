@@ -16,6 +16,9 @@ export class CtrlSesión {
     this._daoUsuarios = daoUsuarios;
   }
 
+async traeEmail(){
+  return this._auth.email;
+}
   /**
    * @param {string} privilegio
    * @returns {Promise<UsuarioAutorizado>}  */

@@ -29,6 +29,7 @@ export class DaoUsuarios {
         escuela: data.ESC_USU,
         edad: data.EDAD_USU,
         avatar: null,
+        usuPublicaciones: null,
         urlDeAvatar: await this._daoStorage.url(doc.id),
         publicaciones: await this._daoPublicaciones.busca(data.PUB_ID),
         privilegios: await this._daoPrivilegios.buscaMuchos(data.PRIV_IDS)
@@ -66,7 +67,8 @@ export class DaoUsuarios {
       EDAD_USU: modelo.edad,
       ESC_USU: modelo.escuela,
       NOM_USU: modelo.nombre,
-      TEL_USU: modelo.telefono
+      TEL_USU: modelo.telefono,
+      USU_PUBS: null
     });
     if (modelo.avatar && modelo.avatar.size > 0) {
       await this._daoStorage.sube(modelo.email, modelo.avatar);
