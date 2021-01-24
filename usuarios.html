@@ -60,7 +60,10 @@
           const nombre = u.publicacion ? u.publicacion.nombre : "";
           const privilegios =
             u.privilegios.map(p => foráneas.renderPrivilegio(p)).join("<br>");
-          const nombreUsu = u.nombreUsu ? u.nombreUsu : "Sin nombre";
+          const nombreUsu = u.nombre ? u.nombre : "Sin nombre";
+          const edad= u.edad ? u.edad: "inmortal";
+          const telefono= u.telefono ? u.telefono : "Sin telefono";
+          const escuela= u.escuela ? u.escuela : "Sin escuela";
           return (/* html */
             `<li>
               <a href="usuario.html?${parámetros}">
@@ -70,8 +73,11 @@
                 <span>
                   <strong>${cod(u.email)}</strong><br>
                   ${cod(nombre)}<br>
-                  ${privilegios}<br>
-                  ${nombreUsu}
+                  ${privilegios}
+                  <br>${nombreUsu}
+                  <br>${edad}
+                  <br>${telefono}
+                  <br>${escuela}
                 </span>
               </a>
             </li>`);

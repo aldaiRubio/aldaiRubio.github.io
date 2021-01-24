@@ -24,7 +24,10 @@ export class DaoUsuarios {
       const data = doc.data();
       return new InfoUsuario({
         email: doc.id,
-        nombreUsu: data.NOM_USU,
+        nombre: data.NOM_USU,
+        telefono: data.TEL_USU,
+        escuela: data.ESC_USU,
+        edad: data.EDAD_USU,
         avatar: null,
         urlDeAvatar: await this._daoStorage.url(doc.id),
         publicaciones: await this._daoPublicaciones.busca(data.PUB_ID),
