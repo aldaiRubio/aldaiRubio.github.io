@@ -1,7 +1,6 @@
 import { valida } from "../lib/util.js";
 
 /** @typedef {Object} ParamPublicacion
- * @property {string} id
  * @property {string} nombre 
  * @property {string} propietario
  * @property {string} descripcion
@@ -10,8 +9,7 @@ import { valida } from "../lib/util.js";
 
 export class InfoPublicacion {
   /** @param {ParamPublicacion} param0 */
-  constructor({ id, nombre, propietario,descripcion,archivo,urlArchivo}) {
-    this.id = id;
+  constructor({nombre, propietario,descripcion,archivo,urlArchivo}) {
     this.nombre = nombre;
     this.propietario = propietario;
     this.descripcion = descripcion;

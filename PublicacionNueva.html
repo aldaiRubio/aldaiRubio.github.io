@@ -66,7 +66,6 @@
           const usu = await ctrlSesión.protege("");
           const prop= usu.email;
           const modelo = new InfoPublicacion({
-            id: null,
             nombre: data.get("nombre"),
             telefono: data.get("descripcion"),
             propietario: prop,
