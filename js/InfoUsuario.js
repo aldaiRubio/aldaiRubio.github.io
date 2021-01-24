@@ -17,6 +17,7 @@ export class InfoUsuario {
     this.telefono = telefono;
     this.edad=edad;
     this.escuela=escuela;
+    this.nombre=nombre;
     this.publicacion = publicacion;
     this.privilegios = privilegios;
   }
