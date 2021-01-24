@@ -67,8 +67,8 @@
           const prop= usu.email;
           const modelo = new InfoPublicacion({
             nombre: data.get("nombre"),
-            telefono: data.get("descripcion"),
             propietario: prop,
+            descripcion: data.get("descripcion"),
             archivo: data.get("archivo"),
             urlArchivo:null 
           });
