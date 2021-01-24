@@ -58,7 +58,11 @@ export class DaoUsuarios {
   async _modificaInterno(modelo) {
     await this._colección.doc(modelo.email).set({
       PUB_ID: modelo.publicacion ? (modelo.publicacion.id || null) : "",
-      PRIV_IDS: modelo.privilegios.map(p => p.nombre)
+      PRIV_IDS: modelo.privilegios.map(p => p.nombre),
+      EDAD_USU: modelo.edad,
+      ESC_USU: modelo.escuela,
+      NOM_USU: modelo.nombre,
+      TEL_USU: modelo.telefono
     });
     if (modelo.avatar && modelo.avatar.size > 0) {
       await this._daoStorage.sube(modelo.email, modelo.avatar);
