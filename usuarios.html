@@ -60,7 +60,8 @@
           const nombre = u.publicacion ? u.publicacion.nombre : "";
           const privilegios =
             u.privilegios.map(p => foráneas.renderPrivilegio(p)).join("<br>");
-          const Nombre = u.nombre ? u.nombre : "no tiene nombre".join("<br>");
+          const nombreUsu = u.nombreUsu;
+          alert(u);
           return (/* html */
             `<li>
               <a href="usuario.html?${parámetros}">
@@ -71,7 +72,7 @@
                   <strong>${cod(u.email)}</strong><br>
                   ${cod(nombre)}<br>
                   ${privilegios}
-                  ${Nombre}
+                  ${NombreUsu}
                 </span>
               </a>
             </li>`);

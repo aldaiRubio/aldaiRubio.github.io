@@ -24,7 +24,7 @@ export class DaoUsuarios {
       const data = doc.data();
       return new InfoUsuario({
         email: doc.id,
-        nombre: data.NOM_USU,
+        nombreUsu: data.NOM_USU,
         avatar: null,
         urlDeAvatar: await this._daoStorage.url(doc.id),
         publicaciones: await this._daoPublicaciones.busca(data.PUB_ID),
