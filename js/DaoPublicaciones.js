@@ -23,9 +23,10 @@ export class DaoPublicaciones {
         nombre: data.PUB_NOMBRE,
         propietario: data.PUB_PROP,
         descripcion: data.PUB_DES,
-        urlArchivo:null,
-        archivo: await this._daoStorage.url(doc.id)
+        archivo:null,
+        urlArchivo: await this._daoStorage.url(doc.id)
       });
+      
     } else {
       return null;
     }
