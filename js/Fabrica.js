@@ -14,17 +14,13 @@ export class Fábrica {
     const firestore = firebase.firestore();
     // @ts-ignore
     const storage = firebase.storage();
-    /** Tipo de autenticación de usuarios. En este caso es con Google. */
     // @ts-ignore
     const auth = firebase.auth();
-    /** Tipo de autenticación de usuarios. En este caso es con Google. */
     // @ts-ignore
     const provider = new firebase.auth.GoogleAuthProvider();
-    /* Configura el proveedor de Google para que permita seleccionar el
-     * nombre de usuario en una lista. */
     provider.setCustomParameters({ prompt: "select_account" });
     this.daoStorage = new DaoStorage(storage);
-    this.daoPublicaciones = new DaoPublicaciones(firestore);
+    this.daoPublicaciones = new DaoPublicaciones(firestore, this.daoStorage);
     this.daoPrivilegios = new DaoPrivilegios(firestore);
     this.daoUsuarios = new DaoUsuarios(firestore, this.daoPublicaciones,
       this.daoPrivilegios, this.daoStorage);

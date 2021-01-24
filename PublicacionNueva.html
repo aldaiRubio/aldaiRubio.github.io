@@ -26,12 +26,21 @@
         <button type="submit">Guardar</button>
       </header>
       <p><label>Nombre <input name="nombre" type="text"></label></p>
+      <p><label>Descripcion <input name="descripción" type="text"></label></p>
+      <p>
+        <label>
+          Archivo
+          <input name="archivo" type="file" accept=".png,.jpg,.jpeg,.pdf,.txt,.xml,.docx,.pptx">
+        </label>
+      </p>
+
     </form>
     <mi-footer></mi-footer>
     <script type="module">
       import { Fábrica } from "./js/Fabrica.js";
       import { muestraError } from "./lib/util.js";
       import { InfoPublicacion } from "./js/InfoPublicacion.js";
+      import { InfoUsuario } from "./js/InfoUsuario.js";
       import { muestraPublicaciones, muestraSesión } from "./js/navegacion.js";
 
       const ctrlSesión = Fábrica.instancia.ctrlSesión;
@@ -54,9 +63,15 @@
         try {
           evt.preventDefault();
           const data = new FormData(forma);
+          const usu = await ctrlSesión.protege("");
+          const prop= usu.email;
           const modelo = new InfoPublicacion({
             id: null,
-            nombre: data.get("nombre")
+            nombre: data.get("nombre"),
+            telefono: data.get("descripcion"),
+            propietario: prop,
+            archivo: data.get("archivo"),
+            urlArchivo:null 
           });
           await ctrlPublicaciones.agrega(modelo);
           muestraPublicaciones();
