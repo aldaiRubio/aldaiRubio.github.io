@@ -6,6 +6,10 @@ import { InfoPrivilegio } from "./InfoPrivilegio.js";
  * @property {string} email
  * @property {File} avatar
  * @property {string} urlDeAvatar
+ * @property {number} edad
+ * @property {string} escuela
+ * @property {number} telefono
+ * @property {string} nombre
  * @property {InfoPublicacion} publicacion
  * @property {InfoPrivilegio[]} privilegios */
 export class InfoUsuario {
