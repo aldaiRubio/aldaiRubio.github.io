@@ -10,7 +10,7 @@ import { InfoPrivilegio } from "./InfoPrivilegio.js";
  * @property {InfoPrivilegio[]} privilegios */
 export class InfoUsuario {
   /** @param {ParamUsuario} param0  */
-  constructor({email, avatar, urlDeAvatar,edad,escuela,telefono,publicacion: publicacion, privilegios}) {
+  constructor({email, avatar, urlDeAvatar,edad,escuela,telefono,nombre,publicacion: publicacion, privilegios}) {
     this.email = email;
     this.avatar = avatar;
     this.urlDeAvatar = urlDeAvatar;

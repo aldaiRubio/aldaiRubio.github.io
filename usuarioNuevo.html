@@ -112,12 +112,12 @@
             email: data.get("cue"),
             avatar: data.get("avatar"),
             urlDeAvatar: null,
-            publicacion,
-            privilegios,
             edad: data.get("edad"),
-            nombre: data.get("nombre"),
+            escuela: data.get("esc"),
             telefono: data.get("tel"),
-            escuela: data.get("esc")
+            nombre: data.get("nombre"),
+            publicacion,
+            privilegios
           });
           await ctrlUsuarios.agrega(modelo);
           muestraUsuarios();
