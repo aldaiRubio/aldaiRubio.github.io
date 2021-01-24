@@ -14,7 +14,7 @@ export class DaoPublicaciones {
     this._daoStorage= daoStorage;
   }
   /** Crea una publicacion a partir de un documento.
- * @return {InfoPublicacion} */
+ * @return {Promise<InfoPublicacion>} */
   _cargaPublicacion(doc) {
     if (doc.exists) {
       const data = doc.data();
@@ -26,7 +26,6 @@ export class DaoPublicaciones {
         archivo:null,
         urlArchivo: await this._daoStorage.url(doc.id)
       });
-      
     } else {
       return null;
     }
