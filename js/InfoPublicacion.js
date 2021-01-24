@@ -5,7 +5,8 @@ import { valida } from "../lib/util.js";
  * @property {string} nombre 
  * @property {string} propietario
  * @property {string} descripcion
- * @property {file} archivo*/
+ * @property {file} archivo
+ * @property {string} urlArchivo*/
 
 export class InfoPublicacion {
   /** @param {ParamPublicacion} param0 */
