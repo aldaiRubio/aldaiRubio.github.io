@@ -60,7 +60,7 @@
           const nombre = u.publicacion ? u.publicacion.nombre : "";
           const privilegios =
             u.privilegios.map(p => foráneas.renderPrivilegio(p)).join("<br>");
-          const nombreUsu = u.nombreUsu;
+          const nombreUsu = u.nombreUsu ? u.nombreUsu : "Sin nombre";
           return (/* html */
             `<li>
               <a href="usuario.html?${parámetros}">
