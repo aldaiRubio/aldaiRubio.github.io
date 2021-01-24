@@ -19,7 +19,6 @@ export class CtrlSesión {
 async traeEmail(){
   alert(this._auth.email);
   return this._auth.email;
-  
 }
   /**
    * @param {string} privilegio
