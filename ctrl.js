@@ -48,22 +48,25 @@ function subida(){
 
 }
 
-var tabla = document.getElementById("tabla")        
-db.collection("publicaciones").get().then((querySnapshot)=>{
-tabla.innerHTML="";
-querySnapshot.forEach((doc)=>{
-tabla.innerHTML+=`
-<tr>
-<th scope="row">${doc.id}</th>
-<td>${doc.data().nombre}</td>
-<td>${doc.data().descripcion}</td>
-<td>${doc.data().fecha}</td>
-<td>${doc.data().autor}</td>
-<td><button onclick="consultar('${doc.id}')">consultar</button></td>
-</tr>
-`
-})
-})
+var tabla = document.getElementById("tabla");  
+if(tabla.value==""){
+    document.get     
+    db.collection("publicaciones").get().then((querySnapshot)=>{
+        tabla.innerHTML="";
+        querySnapshot.forEach((doc)=>{
+        tabla.innerHTML+=`
+        <tr>
+        <th scope="row">${doc.id}</th>
+        <td>${doc.data().nombre}</td>
+        <td>${doc.data().descripcion}</td>
+        <td>${doc.data().fecha}</td>
+        <td>${doc.data().autor}</td>
+        <td><button onclick="consultar('${doc.id}')">consultar</button></td>
+        </tr>
+        `
+        })
+    })
+}else{}
 
 function eliminar(){
     var confirmar = confirm("Seguro que lo quiere eliminar?");
