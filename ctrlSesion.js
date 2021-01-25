@@ -13,10 +13,10 @@ var firebaseConfig = {
 
 function registrar(){
     console.log("Entro a registro");
-  //  var Email=document.getElementById("Email").value,
-   //     password=document.getElementById("Pass").value;
-     //   console.log(Email, password);
-   /* firebase.auth().createUserWithEmailAndPassword(Email, password)
+   var Email=document.getElementById("Email").value,
+        password=document.getElementById("Pass").value;
+        console.log(Email, password);
+    firebase.auth().createUserWithEmailAndPassword(Email, password)
   .then((user) => {
     // Signed in
     // ...
@@ -36,22 +36,22 @@ function registrar(){
     var errorCode = error.code;
     var errorMessage = error.message;
     // ..
-  }); **/
+  }); 
 }
 
-// function iniciarSesion(){
-//     var email=document.getElementById("Email").value,
-//         password=document.getElementById("Pass").value;
-//     firebase.auth().signInWithEmailAndPassword(email, password)
-//     .then((user) => {
-//         // Signed in
-//         // ...
-//      //   window.location.href = "sesion.html";
+ function iniciarSesion(){
+     var email=document.getElementById("Email").value,
+         password=document.getElementById("Pass").value;
+     firebase.auth().signInWithEmailAndPassword(email, password)
+     .then((user) => {
+         // Signed in
+         // ...
+         window.location.href = "sesion.html";
 
-//     })
-//     .catch((error) => {
-//         var errorCode = error.code;
-//         var errorMessage = error.message;
-//     });
-// }
+     })
+     .catch((error) => {
+         var errorCode = error.code;
+         var errorMessage = error.message;
+     });
+ }
 
