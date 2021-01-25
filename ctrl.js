@@ -11,25 +11,41 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   var db = firebase.firestore();
 
+
+
 function subida(){
-    var Nombre=document.getElementById("nombre").value,
-        Descripcion=document.getElementById("descripcion").value,
-        Fecha=document.getElementById("fecha").value,
-        Autor=document.getElementById("autor").value;
-    // Add a new document with a generated id.
-    db.collection("publicaciones").add({
-        nombre: Nombre,
-        descripcion: Descripcion,
-        fecha: Fecha,
-        autor: Autor
-    })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        window.location.href = "publicaciones.html"  
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          var uid = user.uid;
+          var correo= user.email;
+          var Nombre=document.getElementById("nombre").value,
+          Descripcion=document.getElementById("descripcion").value,
+          Fecha=document.getElementById("fecha").value,
+          Autor=correo;
+      // Add a new document with a generated id.
+      db.collection("publicaciones").add({
+          nombre: Nombre,
+          descripcion: Descripcion,
+          fecha: Fecha,
+          autor: Autor
+      })
+      .then(function(docRef) {
+          alert("Agregado");
+          window.location.href = "publicaciones.html"  
+      })
+      .catch(function(error) {
+          console.error("Error adding document: ", error);
+      });
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+
+
 }
 
 var tabla = document.getElementById("tabla")        

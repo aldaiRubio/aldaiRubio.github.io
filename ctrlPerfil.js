@@ -18,10 +18,10 @@ var firebaseConfig = {
       var uid = user.uid;
       var correo= user.email;
       var docRef = db.collection("usuarios").doc(correo);
-
+      document.getElementById("Email").value=correo;
       docRef.get().then(function(doc) {
           if (doc.exists) {
-              document.getElementById("Email").value=correo;
+              location.reload();
           } else {
               // doc.data() will be undefined in this case
               console.log("No such document!");
