@@ -4,11 +4,9 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -16,22 +14,44 @@
         <title>Proyectos</title>
     </head>
 <body>
-        <p>
+
+ 
+
+    <section>
+        <div class="container">
+        <div class="row ">
+            <div class="col col-md-12">
+
+ 
+
             <form>
                 <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="Email" required>
                 </div>
                 <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" required>
                 </div>
+                </form>
                 <button onclick="iniciarSesion()" class="btn btn-primary">Iniciar Sesion</button>
                 <button onclick="registrar()" class="btn btn-primary">Registrar</button>
-            </form>
-        </p>
-</body>
-<script src='ctrlSesion.js'></script>
-</html>
+            
 
+ 
+
+            </div>
+        </div>
+        </div>
+        
+    </section>
+        
+            
+        
+</body>
+<script type="text/javascript" src="ctrlSesion.js"></script>
+
+ 
+
+</html>
 
