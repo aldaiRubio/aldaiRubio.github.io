@@ -14,7 +14,7 @@ var firebaseConfig = {
 function registrar(){
     console.log("Entro a registro");
     var Email=document.getElementById("Email").value,
-        password=document.getElementById("Pass").value;
+        password=document.getElementById("password").value;
         console.log(Email, password);
     firebase.auth().createUserWithEmailAndPassword(Email, password)
   .then((user) => {
