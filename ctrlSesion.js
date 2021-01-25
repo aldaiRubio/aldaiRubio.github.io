@@ -55,12 +55,12 @@ function registrar(){
  }
 
  function cerrarSesion(){
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        alert("Hasta luego");
-        window.location.href="index.html";
-      }).catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
+  firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+      alert("Hasta luego");
+      window.location.href="index.html";
+    }).catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
 }
