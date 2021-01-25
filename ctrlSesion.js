@@ -41,7 +41,7 @@ function registrar(){
 
  function iniciarSesion(){
      var email=document.getElementById("Email").value,
-         password=document.getElementById("Pass").value;
+         password=document.getElementById("password").value;
      firebase.auth().signInWithEmailAndPassword(email, password)
      .then((user) => {
          // Signed in
