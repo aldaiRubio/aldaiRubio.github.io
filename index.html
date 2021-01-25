@@ -1,72 +1,36 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesión</title>
-    <!-- Carga el núcleo de Firebase JS SDK -->
-    <script
-      src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
-    <!-- Agrega el manejo de autenticación. -->
-    <script
-      src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
-    <!-- Agrega el manejo de bases de datos. -->
-    <script
-      src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
-    <!-- Agrega el manejo de storage. -->
-    <script
-      src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
-    <!-- Configura la app usando la información del sitio de Firebase. -->
-    <script src="js/init.js"></script>
-    <script type="module" src="cmp/mi-nav.js"></script>
-    <script type="module" src="cmp/mi-footer.js"></script>
-    <script type="module" src="cmp/mi-progreso.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
-  </head>
-  <body>
-    <mi-nav id="miNav"></mi-nav>
-    <header>
-      <h1>Sesión</h1>
-      <button id=terminarSesión type="button">Terminar Sesión</button>
-    </header>
-    <figure><img id=avatar src="" alt=Avatar></figure>
-    <p>
-      <label>
-        Email
-        <output id=email>
-          <mi-progreso></mi-progreso>
-        </output>
-      </label>
-    </p>
-    <p>
-      <label>
-        Nombre
-        <output id=nombre>
-          <mi-progreso></mi-progreso>
-        </output>
-      </label>
-    </p>
-    <mi-footer></mi-footer>
-    <script type="module">
-      import { Fábrica } from "./js/Fabrica.js";
-      import { muestraError } from "./lib/util.js";
-
-      const ctrlSesión = Fábrica.instancia.ctrlSesión;
-      terminarSesión.addEventListener("click",
-        () => ctrlSesión.terminaSesión());
-
-      protege();
-      async function protege() {
-        try {
-          const usuarioAutorizado = await ctrlSesión.protege("");
-          miNav.protege(usuarioAutorizado.privilegios);
-          email.value = usuarioAutorizado.email;
-          nombre.value = usuarioAutorizado.nombre;
-          avatar.src = usuarioAutorizado.urlFoto;
-        } catch (error) {
-          muestraError(error)
-        }
-      }
-    </script>
-  </body>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Proyectos</title>
+    </head>
+<body>
+        <p>
+            <form>
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password">
+                </div>
+                <button onclick="iniciarSesion()" class="btn btn-primary">Iniciar Sesion</button>
+                <button onclick="registrar()" class="btn btn-primary">Registrar</button>
+            </form>
+        </p>
+</body>
+<script src='ctrlSesion.js'></script>
 </html>
+

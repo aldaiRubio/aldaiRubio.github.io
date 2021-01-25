@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="main.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -27,12 +27,14 @@
                     <a class="nav-link active" aria-current="page" href="nuevaPublicacion.html">Nueva Publicación</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="sesion.html">Perfil</a>
+                    <a class="nav-link" href="#">Features</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar Sesion</a>
+                    <a class="nav-link" href="#">Pricing</a>
                   </li>
-
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -40,27 +42,12 @@
     </header>
     <div id="formulario">
         <form id="forma">
-            <label>ID<p><input id="ID" type="password" disabled required></p></label>
-            <label>Nombre<p><input id="nombre" type="text" placeholder="tarea" required></p></label>
-            <label>Descripción<p><input id="descripcion" type="text" placeholder="mate" required></p></label>
-            <label>Fecha<p><input id="fecha" type="date" required ></p></label>
-            <label>Autor<p><input id="autor" type="text" required placeholder="juan pérez"></p></label>
+            <label>Correo<p><input id="Email" type="text" disabled required></p></label>
+            <label>Nombre<p><input id="nombre" type="text" placeholder="jose" required></p></label>
         </form>
     <button onclick="modificar()">modificar</button>
     <button onclick="eliminar()">eliminar</button>
     </div>
-    <table class="table caption-top">
-            <thead>
-            <th scope="col" >ID</td>
-            <th scope="col">Nombre</td>
-            <th scope="col">Descripcion</td>
-            <th scope="col">Fecha</td>
-            <th scope="col">Autor</td>
-            </thead>
-      </th>
-      <tbody id="tabla">
-      </tbody>
-      </table>
 </body>
-<script src='ctrl.js'></script>
+<script src='ctrlPerfil.js'></script>
 </html>

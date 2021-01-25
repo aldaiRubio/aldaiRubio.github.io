@@ -1,0 +1,23 @@
+a,button,label,td,th,p,header,nav{
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+}
+#formulario{
+    display: none;
+}
+label{
+    padding: 0.5rem;
+    overflow: auto;
+}
+header{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    align-content: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+}
+

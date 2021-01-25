@@ -24,43 +24,27 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="nuevaPublicacion.html">Nueva Publicación</a>
+                    <a class="nav-link active" aria-current="page" href="publicaciones.html">Publicaciónes</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="sesion.html">Perfil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar Sesion</a>
+                    <a class="nav-link btn" onclick="cerrarSesion()">Cerrar Sesion</a>
                   </li>
-
                 </ul>
               </div>
             </div>
           </nav>
     </header>
-    <div id="formulario">
-        <form id="forma">
-            <label>ID<p><input id="ID" type="password" disabled required></p></label>
-            <label>Nombre<p><input id="nombre" type="text" placeholder="tarea" required></p></label>
-            <label>Descripción<p><input id="descripcion" type="text" placeholder="mate" required></p></label>
-            <label>Fecha<p><input id="fecha" type="date" required ></p></label>
-            <label>Autor<p><input id="autor" type="text" required placeholder="juan pérez"></p></label>
-        </form>
-    <button onclick="modificar()">modificar</button>
-    <button onclick="eliminar()">eliminar</button>
-    </div>
-    <table class="table caption-top">
-            <thead>
-            <th scope="col" >ID</td>
-            <th scope="col">Nombre</td>
-            <th scope="col">Descripcion</td>
-            <th scope="col">Fecha</td>
-            <th scope="col">Autor</td>
-            </thead>
-      </th>
-      <tbody id="tabla">
-      </tbody>
-      </table>
+    <form id="forma">
+        <p><label>ID<input id="ID" type="password" disabled required></p></label>
+        <p><label>Nombre<p><input id="nombre" type="text" placeholder="tarea" required></p></label>
+        <p><label>Descripción<p><input id="descripcion" type="text" placeholder="mate" required></p></label>
+        <p><label>Fecha<p><input id="fecha" type="date" required ></p></label>
+        <p><label>Autor<p><input id="autor" type="text" required placeholder="juan pérez"></p></label>
+    </form>
+    <button onclick="subida()">guardar</button>
 </body>
 <script src='ctrl.js'></script>
 </html>
