@@ -49,7 +49,7 @@ function subida(){
 }
 
 var tabla = document.getElementById("tabla");  
-if(tabla.value==""){
+if(tabla===null){
     document.get     
     db.collection("publicaciones").get().then((querySnapshot)=>{
         tabla.innerHTML="";
