@@ -22,7 +22,7 @@ var firebaseConfig = {
 
       docRef.get().then(function(doc) {
           if (doc.exists) {
-              console.log("Document data:", doc.data());
+              document.getElementById("Email").value=correo;
           } else {
               // doc.data() will be undefined in this case
               console.log("No such document!");
@@ -36,3 +36,13 @@ var firebaseConfig = {
       // ...
     }
   });
+  function cerrarSesion(){
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        alert("Hasta luego");
+        window.location.href="index.html";
+      }).catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+}

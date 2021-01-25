@@ -7,6 +7,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="main.css">
@@ -17,7 +18,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+            <div class="container-fluid .bg-secondary.bg-gradient">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -38,7 +39,7 @@
             </div>
           </nav>
     </header>
-    <div id="formulario">
+    <div class=".bg-secondary.bg-gradient" id="formulario">
         <form id="forma">
             <label>ID<p><input id="ID" type="password" disabled required></p></label>
             <label>Nombre<p><input id="nombre" type="text" placeholder="tarea" required></p></label>
