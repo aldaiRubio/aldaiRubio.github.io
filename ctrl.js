@@ -20,16 +20,24 @@ function subida(){
           // https://firebase.google.com/docs/reference/js/firebase.User
           var uid = user.uid;
           var correo= user.email;
+          var storageRef = firebase.storage().ref();
+
           var Nombre=document.getElementById("nombre").value,
           Descripcion=document.getElementById("descripcion").value,
           Fecha=document.getElementById("fecha").value,
+          Archivo=document.getElementById("archivo").value,
           Autor=correo;
+          var archivoRef = storageRef.child(`${Archivo}`);
+          var ArcRef = storageRef.child(`archivos/${Archivo}`);
+          archivoRef.name === ArcRef.name            // true
+          archivoRef.fullPath === ArcRef.fullPath    // false
       // Add a new document with a generated id.
       db.collection("publicaciones").add({
           nombre: Nombre,
           descripcion: Descripcion,
           fecha: Fecha,
-          autor: Autor
+          autor: Autor,
+          archivoUrl:`archivos/${Archivo}`
       })
       .then(function(docRef) {
           alert("Agregado");
