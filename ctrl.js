@@ -49,8 +49,7 @@ function subida(){
 
 }
 
-var tabla = document.getElementById("tabla");  
-    document.get     
+var tabla = document.getElementById("tabla");      
     db.collection("publicaciones").get().then((querySnapshot)=>{
         tabla.innerHTML="";
         querySnapshot.forEach((doc)=>{
