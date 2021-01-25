@@ -50,13 +50,19 @@ tabla.innerHTML+=`
 })
 
 function eliminar(){
-    var id=document.getElementById("ID").value;
-    db.collection("publicaciones").doc(id).delete().then(function() {
-        document.getElementById("formulario").style.display="none";
-        location.reload();
-    }).catch(function(error) {
-        console.error("Error removing document: ", error);
-    });  
+    var confirmar = confirm("Seguro que lo quiere eliminar?");
+    if (confirmar === true) {
+        var id=document.getElementById("ID").value;
+        db.collection("publicaciones").doc(id).delete().then(function() {
+            document.getElementById("formulario").style.display="none";
+            alert("eliminado");
+            location.reload();
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
+        });  
+    } else {
+        
+    }
 }
 
 function consultar(id){
@@ -78,7 +84,9 @@ function consultar(id){
     });
 }
 
-function modificar(){
+function modificar(){    
+    var confirmar = confirm("Seguro que lo quiere eliminar?");
+if (confirmar === true) {
     var Nombre=document.getElementById("nombre").value,
         Descripcion=document.getElementById("descripcion").value,
         Fecha=document.getElementById("fecha").value,
@@ -90,10 +98,14 @@ function modificar(){
             "fecha": Fecha,
             "autor": Autor
         })
+
         .then(function() {
             document.getElementById("formulario").style.display="none";
+            alert("modificado");
             location.reload();
         });
+    } else {
+    }
 }
 function cerrarSesion(){
     firebase.auth().signOut().then(() => {

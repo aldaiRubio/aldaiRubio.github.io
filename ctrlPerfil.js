@@ -17,7 +17,6 @@ var firebaseConfig = {
       // https://firebase.google.com/docs/reference/js/firebase.User
       var uid = user.uid;
       var correo= user.email;
-      console.log(correo);
       var docRef = db.collection("usuarios").doc(correo);
 
       docRef.get().then(function(doc) {
