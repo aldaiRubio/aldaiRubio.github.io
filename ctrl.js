@@ -50,7 +50,6 @@ function subida(){
 }
 
 var tabla = document.getElementById("tabla");  
-if(tabla===null){
     document.get     
     db.collection("publicaciones").get().then((querySnapshot)=>{
         tabla.innerHTML="";
@@ -67,7 +66,7 @@ if(tabla===null){
         `
         })
     })
-}else{}
+
 
 function eliminar(){
     var confirmar = confirm("Seguro que lo quiere eliminar?");
